@@ -10,4 +10,6 @@ public class SimpleBoardApplication {
         SpringApplication.run(SimpleBoardApplication.class, args);
     }
 
+
+    
 }
