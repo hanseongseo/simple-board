@@ -30,11 +30,11 @@ public class Article extends AuditingFields {
 
     @Setter private String hashtag;
 
-//  ArticleComment 와 양방향 바인딩
+    //  ArticleComment 와 양방향 바인딩
+    @ToString.Exclude
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article" //mappedBy 안하면 article_article_comment 테이블 추가로 생성됨
             , cascade = CascadeType.ALL)
-    @ToString.Exclude
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     private Article(UserAccount userAccount, String title, String content, String hashtag) {

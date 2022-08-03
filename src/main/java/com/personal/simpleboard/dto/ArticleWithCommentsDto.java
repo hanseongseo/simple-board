@@ -17,8 +17,8 @@ public record ArticleWithCommentsDto(
         LocalDateTime createdAt,
         String createdBy,
         LocalDateTime modifiedAt,
-        String modifiedBy) {
-
+        String modifiedBy
+) {
     public static ArticleWithCommentsDto of(Long id, UserAccountDto userAccountDto, Set<ArticleCommentDto> articleCommentDtos, String title, String content, String hashtag, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
         return new ArticleWithCommentsDto(id, userAccountDto, articleCommentDtos, title, content, hashtag, createdAt, createdBy, modifiedAt, modifiedBy);
     }
@@ -37,15 +37,6 @@ public record ArticleWithCommentsDto(
                 entity.getCreatedBy(),
                 entity.getModifiedAt(),
                 entity.getModifiedBy()
-        );
-    }
-
-    public Article toEntity() {
-        return Article.of(
-                userAccountDto.toEntity(),
-                title,
-                content,
-                hashtag
         );
     }
 }
